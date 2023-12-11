@@ -73,6 +73,16 @@ Check Product Getting Removed Successfully From Cart Using Cart Remove Button Wi
     click on remove from cart button cartpage    1
     check cart is empty
 
+Check Multiple Products Getting Removed Successfully From Cart Using Cart Remove Button With Standard User
+    [Documentation]    Check Product Getting Removed Successfully From Cart With Standard User
+    [Tags]    Cart
+    login to saucedemo    ${standard_user_name}    ${user_password}
+    Add Multiple Products To Cart And Verify Same Product Got Added To Cart    3
+    click on shopping cart
+    Remove Multiple Products From Cart Using Remove button on cart page    3
+    check cart is empty
+
+
 
 #Below test cases are executed with error user
 Check Product Added From Home Page Is Not Getting Removed From Home Page Remove Button With Error User

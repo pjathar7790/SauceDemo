@@ -9,4 +9,6 @@ class HomePageLocator:
     sort_z_a = '//option[text()="Name (Z to A)"]'
     sort_price_low_high = '//option[text()="Price (low to high)"]'
     sort_price_high_low = '//option[text()="Price (high to low)"]'
+    all_inventory_name = '//div[@class="inventory_item"]//div[@class="inventory_item_name "]'
+    all_inventory_price = '//div[@class="inventory_item"]//div[@class="inventory_item_price"]'
 

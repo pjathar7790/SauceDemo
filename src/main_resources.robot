@@ -1,6 +1,7 @@
 *** Settings ***
 
 Library    ../lib/Main.py
+Library    Collections
 
 
 *** Variables ***
@@ -34,4 +35,10 @@ Add Multiple Products To Cart And Verify Same Product Got Added To Cart
         ${i}    convert to string  ${i}
         Add Single Product To Cart And Verify Same Product Got Added To Cart    ${i}
         click on continue shopping button
+    END
+
+Remove Multiple Products From Cart Using Remove button on cart page
+    [Arguments]    ${no_of_products_to_remove}
+    FOR    ${i}   IN RANGE   1    ${no_of_products_to_remove}
+        click on remove from cart button cartpage    1
     END

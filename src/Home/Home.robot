@@ -21,25 +21,42 @@ Check Differ Filter Options Present With Standard User
     login to saucedemo    ${standard_user_name}    ${user_password}
     check different sort options available
 
-#Check Sorting Is Happening For Name From A-Z With Standard User
-#    [Documentation]    Check Sorting Is Happening For Name From A-Z With Standard User
-#    [Tags]    Home
-#    login to saucedemo    ${standard_user_name}    ${user_password}
-#
-#Check Sorting Is Happening For Name From Z-A With Standard User
-#    [Documentation]    Check Sorting Is Happening For Name From Z-A With Standard User
-#    [Tags]    Home
-#    login to saucedemo    ${standard_user_name}    ${user_password}
-#
-#Check Sorting Is Happening For Price From Low-High With Standard User
-#    [Documentation]    Check Sorting Is Happening For Price From Low-High With Standard User
-#    [Tags]    Home
-#    login to saucedemo    ${standard_user_name}    ${user_password}
-#
-#Check Sorting Is Happening For Price From High-Low With Standard User
-#    [Documentation]    Check Differ Filter Options Present With Standard User
-#    [Tags]    Home
-#    login to saucedemo    ${standard_user_name}    ${user_password}
+Check Sorting Is Happening For Name From A-Z With Standard User
+    [Documentation]    Check Sorting Is Happening For Name From A-Z With Standard User
+    [Tags]    Home
+    login to saucedemo    ${standard_user_name}    ${user_password}
+    click on sort z a
+    ${all_inventory_names_ascending_order}    get_all_inventory_name    False    True
+    click on sort a z
+    ${all_inventory_names}    get_all_inventory_name
+    should be equal   ${all_inventory_names_ascending_order}    ${all_inventory_names}
+
+Check Sorting Is Happening For Name From Z-A With Standard User
+    [Documentation]    Check Sorting Is Happening For Name From Z-A With Standard User
+    [Tags]    Home
+    login to saucedemo    ${standard_user_name}    ${user_password}
+    ${all_inventory_names_descending_order}    get_all_inventory_name    True    False
+    click on sort z a
+    ${all_inventory_names}    get_all_inventory_name
+    should be equal   ${all_inventory_names_descending_order}    ${all_inventory_names}
+
+Check Sorting Is Happening For Price From Low-High With Standard User
+    [Documentation]    Check Sorting Is Happening For Price From Low-High With Standard User
+    [Tags]    Home
+    login to saucedemo    ${standard_user_name}    ${user_password}
+    ${all_inventory_prices_ascending_order}    get_all_inventory_price    False    True
+    click_on_sort_price_low_high
+    ${all_inventory_prices}    get_all_inventory_price
+    should be equal   ${all_inventory_prices_ascending_order}    ${all_inventory_prices}
+
+Check Sorting Is Happening For Price From High-Low With Standard User
+    [Documentation]    Check Differ Filter Options Present With Standard User
+    [Tags]    Home
+    login to saucedemo    ${standard_user_name}    ${user_password}
+    ${all_inventory_prices_descending_order}    get_all_inventory_price    True    False
+    click_on_sort_price_high_low
+    ${all_inventory_prices}    get_all_inventory_price
+    should be equal   ${all_inventory_prices_descending_order}    ${all_inventory_prices}
 
 Check Twitter Page Is Getting Opend When Click On Twitter Icon With Standard User
     [Documentation]    Check Differ Filter Options Present With Standard User

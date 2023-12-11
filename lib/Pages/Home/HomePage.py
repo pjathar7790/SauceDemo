@@ -58,6 +58,32 @@ class HomePage(BasePage):
     def alert_should_be_present(self, text):
         self.session.alert_should_be_present(text, 'Accept')
 
+    def get_all_inventory_price(self, reverse=False, ascending=False):
+        count = self.session.get_element_count(l.all_inventory_price)
+        prices = []
+        for i in range(1, count+1):
+            price = self.session.get_text(cl.inventory_price.replace('inventory_no', str(i)))
+            price = str(price)
+            price = price.lstrip('$')
+            price = float(price)
+            prices.append(price)
+        if reverse:
+            prices.sort(reverse=True)
+        if ascending:
+            prices.sort()
+        return prices
+
+    def get_all_inventory_name(self, reverse=False, ascending=False):
+        count = self.session.get_element_count(l.all_inventory_name)
+        names = []
+        for i in range(1, count+1):
+            name = self.session.get_text(cl.inventory_item_name.replace('inventory_no', str(i)))
+            names.append(name)
+        if reverse:
+            names.sort(reverse=True)
+        if ascending:
+            names.sort()
+        return names
 
 
 
