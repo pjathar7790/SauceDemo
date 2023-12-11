@@ -6,6 +6,7 @@ Test Teardown    close browser
 
 *** Test Cases ***
 
+#Below test cases are executed with standard user
 Check Different Menu Items In Left Panel And Check Close Menu Button With Standard User
     [Documentation]    Check Different Menu Items In Left Panel And Check Close Menu Button With Standard User
     [Tags]    Home
@@ -85,3 +86,17 @@ Check User Is Getting Logged Out When We Click On Logout Menu out With Standard 
     ${current_page_title}    get current page title
     should contain    ${current_page_title}    Swag Labs
     check different web elements on login page
+
+
+#Below test cases are executed with error user
+Check Error Message When Try To Filter Products With 'Error User'
+    [Documentation]    Check Error Message When Try To Filter Products With 'Error User'
+    [Tags]    Home
+    login to saucedemo    ${error_user}    ${user_password}
+    check different sort options available
+    click on sort z a
+    alert_should_be_present    ${alert_text}
+    click on sort price low high
+    alert_should_be_present    ${alert_text}
+    click on sort price high low
+    alert_should_be_present    ${alert_text}

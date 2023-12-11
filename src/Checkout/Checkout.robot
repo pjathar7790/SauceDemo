@@ -5,6 +5,7 @@ Test Teardown    close browser
 
 *** Test Cases ***
 
+#Below test cases are with with standard user
 Check When We Click On Checkout Button On 'Cart' Page 'Checkout: Your Information' Page Is Getting Opened
     [Documentation]    Check When We Click On Checkout Button On 'Cart' Page 'Checkout: Your Information' Page Is Getting Opened
     [Tags]    Checkout
@@ -99,3 +100,26 @@ Check When we click on 'Back Home' Button On 'Checkout: Complete' Page 'Home' Pa
     check different web elements on checkout complete page
     click on back to home button
     verify saucedemo home page after login
+
+#Below test cases are executed with error user
+Check 'Error User' Is Not Able To Click On Finish Button On 'Checkout: Overview' Page
+    [Documentation]    Check When we click on 'Back Home' Button On 'Checkout: Complete' Page 'Home' Page Getting Opened
+    [Tags]    Checkout
+    login to saucedemo    ${error_user}    ${user_password}
+    Add Single Product To Cart And Verify Same Product Got Added To Cart    1
+    click on checkout button
+    enter details on checkout information page    ${firstname}    ${lastname}    ${postal_code}
+    click on continue button
+    click on finish button
+    check different web elements on checkout overview_page
+
+#Below test cases are executed with problem user
+Check 'Problem User' Is Not Able To Click On Continue Button On 'Checkout: Your Information' Page As Last Name Is Not Getting Typed
+    [Documentation]    Check 'Problem User' Is Not Able To Click On Continue Button On 'Checkout: Your Information' Page As Last Name Is Not Getting Typed
+    [Tags]    Checkout
+    login to saucedemo    ${problem_user}    ${user_password}
+    Add Single Product To Cart And Verify Same Product Got Added To Cart    1
+    click on checkout button
+    enter details on checkout information page    ${firstname}    ${lastname}    ${postal_code}
+    click on continue button
+    check different web elements on checkout your info page

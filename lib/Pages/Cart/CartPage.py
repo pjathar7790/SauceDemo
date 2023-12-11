@@ -62,6 +62,9 @@ class CartPage(BasePage):
     def check_cart_is_empty(self):
         self.session.page_should_not_contain_element(l.cart_item)
 
+    def check_cart_is_not_empty(self):
+        self.session.page_should_contain_element(l.cart_item)
+
     def click_on_continue_shopping_button(self):
         self.session.wait_until_element_is_visible(l.continue_shopping_button)
         self.session.click_element(l.continue_shopping_button)

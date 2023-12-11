@@ -72,3 +72,28 @@ Check Product Getting Removed Successfully From Cart Using Cart Remove Button Wi
     Add Single Product To Cart And Verify Same Product Got Added To Cart    1
     click on remove from cart button cartpage    1
     check cart is empty
+
+
+#Below test cases are executed with error user
+Check Product Added From Home Page Is Not Getting Removed From Home Page Remove Button With Error User
+    [Documentation]    Check Single Product Getting Added To Cart Successfully With Standard User
+    [Tags]    Cart
+    login to saucedemo    ${error_user}    ${user_password}
+    Add Single Product To Cart And Verify Same Product Got Added To Cart    1
+    click on continue shopping button
+    click on remove from cart button homepage    1
+    click on shopping cart
+    check cart is not empty
+
+#Below test cases are executed with problem user
+Check Product Added From Home Page Is Not Getting Removed From Home Page Remove Button With Problem User
+    [Documentation]    Check Single Product Getting Added To Cart Successfully With Standard User
+    [Tags]    Cart
+    login to saucedemo    ${problem_user}    ${user_password}
+    Add Single Product To Cart And Verify Same Product Got Added To Cart    1
+    click on continue shopping button
+    click on remove from cart button homepage    1
+    click on shopping cart
+    check cart is not empty
+
+

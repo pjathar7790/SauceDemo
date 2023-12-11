@@ -30,16 +30,16 @@ class HomePage(BasePage):
         self.session.page_should_contain_element(l.sort_price_low_high)
         self.session.page_should_contain_element(l.sort_price_high_low)
 
-    def click_sort_a_z(self):
+    def click_on_sort_a_z(self):
         self.session.click_element(l.sort_a_z)
 
-    def click_sort_z_a(self):
+    def click_on_sort_z_a(self):
         self.session.click_element(l.sort_z_a)
 
-    def click_sort_price_low_high(self):
+    def click_on_sort_price_low_high(self):
         self.session.click_element(l.sort_price_low_high)
 
-    def click_sort_price_high_low(self):
+    def click_on_sort_price_high_low(self):
         self.session.click_element(l.sort_price_high_low)
 
     def click_on_social_media_icon(self, name):
@@ -55,6 +55,8 @@ class HomePage(BasePage):
         self.session.page_should_contain_element(ll.password)
         self.session.page_should_contain_element(ll.login_button)
 
+    def alert_should_be_present(self, text):
+        self.session.alert_should_be_present(text, 'Accept')
 
 
 
