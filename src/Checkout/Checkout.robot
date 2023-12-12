@@ -23,8 +23,8 @@ Check When we click on Cancel Button On 'Checkout: Your Information' Page 'Cart'
     click on cancel button
     check different web elements on cart page
 
-Check Error Message For Empty Username On Checkout:Your Information Page
-    [Documentation]    Check Validation For Empty Username On Checkout:Your Information Page
+Check Error Message For Empty FirstName On Checkout:Your Information Page
+    [Documentation]    Check Validation For Empty FirstName On Checkout:Your Information Page
     [Tags]    Checkout
     login to saucedemo    ${standard_user_name}    ${user_password}
     Add Single Product To Cart And Verify Same Product Got Added To Cart    1
@@ -34,8 +34,8 @@ Check Error Message For Empty Username On Checkout:Your Information Page
     ${actual_error_message}    get error message on checkout page
     should be equal as strings      ${actual_error_message}    ${expected_error_message_firstname}
 
-Check Error Message For Empty Password On Checkout:Your Information Page
-    [Documentation]    Check Error Message For Empty Password On Checkout:Your Information Page
+Check Error Message For Empty LastName On Checkout:Your Information Page
+    [Documentation]    Check Error Message For Empty LastName On Checkout:Your Information Page
     [Tags]    Checkout
     login to saucedemo    ${standard_user_name}    ${user_password}
     Add Single Product To Cart And Verify Same Product Got Added To Cart    1
